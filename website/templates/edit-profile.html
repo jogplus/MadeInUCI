@@ -17,7 +17,10 @@
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
+  {% for src in assets.base.styles %}
+    <link rel="stylesheet" href="{{ src }}">
+  {% endfor %}
 
 </head>
 
@@ -113,15 +116,12 @@
 
   </div>
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  {% for src in assets.base.vendor %}
+    <script src="{{ src }}"></script>
+  {% endfor %}
+  {% for src in assets.base.scripts %}
+    <script src="{{ src }}"></script>
+  {% endfor %}
 
 </body>
 
