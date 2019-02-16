@@ -1,0 +1,19 @@
+# coding: utf-8
+
+bind = '{{ web_bind }}'
+workers = 2
+
+timeout = 30
+
+max_requests = 1000
+max_requests_jitter = 500
+
+proc_name = '{{ web_app }}'
+
+accesslog = None
+errorlog = '-'
+loglevel = 'warning'
+
+secure_scheme_headers = {
+    'X-FORWARDED-PROTO': 'https',
+}

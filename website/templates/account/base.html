@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  <style>
+    .account{max-width:480px;margin-top:100px}
+    .account-info{margin-top:60px;font-size:.86em}
+  </style>
+  {% block googlehead %}{% endblock %}
+{% endblock %}
+
+{% block nav %}{% endblock %}
+
+{% block body %}
+  <div class="account inner">
+    {% block header %}{% endblock %}
+    <div class="section"></div>
+    <div class="account-form">
+      {% block google %}{% endblock %}
+    </div>
+  </div>
+{% endblock %}

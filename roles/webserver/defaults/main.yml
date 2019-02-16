@@ -1,0 +1,13 @@
+web_user: web
+
+web_app: playground
+web_server_name: play.authlib.org
+web_virtualenv: "/var/venv/playground"
+
+web_base_dir: /code/playground
+web_source_dir: "{{ web_base_dir }}/src"
+web_conf_dir: "{{ web_base_dir }}/conf"
+web_public_dir: "/var/www/{{ web_server_name }}"
+
+web_bind: "127.0.0.1:9106"
+web_database_uri: "postgresql://postgres@localhost/playground"

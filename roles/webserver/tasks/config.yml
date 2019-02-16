@@ -1,0 +1,22 @@
+---
+
+- name: Ensure web directory
+  file: path={{ item }} state=directory recurse=yes owner={{ web_user }}
+  with_items:
+    - "{{ web_source_dir }}"
+    - "{{ web_conf_dir }}"
+    - "{{ web_public_dir }}"
+
+- name: Add playground gunicorn config
+  template: src=gunicorn_conf.j2 dest={{ web_conf_dir }}/gunicorn_conf.py
+
+- name: Add playground app config
+  template: src=config.py.j2 dest={{ web_conf_dir }}/config.py
+
+- name: Add playground supervisor config
+  template: src=supervisor.conf.j2 dest={{ supervisor_incdir }}/{{ web_app }}.conf
+
+- name: Add playground nginx config
+  template: src=nginx.conf.j2 dest={{ nginx_sites_dir }}/{{ web_server_name }}
+  notify:
+    - nginx restart
