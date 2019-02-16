@@ -8,6 +8,8 @@ if is_dev:
     os.environ['AUTHLIB_INSECURE_TRANSPORT'] = 'true'
     conf_file = os.path.abspath('conf/dev.config.py')
     app = create_app(conf_file)
+    with app.app_context():
+        db.create_all()
 
     @app.after_request
     def add_header(resp):

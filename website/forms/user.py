@@ -59,6 +59,7 @@ class UserCreationForm(BaseForm):
         email = self.email.data.lower()
         user = User(name=name, email=email)
         user.password = self.password.data
+        user.picture = self.picture.data
         with db.auto_commit():
             db.session.add(user)
         login(user, True)

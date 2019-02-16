@@ -35,6 +35,7 @@ class AuthenticateGoogle(BaseForm):
     email = EmailField()
     id = StringField()
     name = StringField()
+    picture = StringField()
 
     def validate_id(self, field):
         try:
@@ -51,7 +52,7 @@ class AuthenticateGoogle(BaseForm):
         email = field.data.lower()
         user = User.query.filter_by(email=email).first()
         if not user:
-            user = User(name=self.name.data, email=email)
+            user = User(name=self.name.data, email=email, picture=self.picture.data)
             with db.auto_commit():
                 db.session.add(user)
         login(user, False)

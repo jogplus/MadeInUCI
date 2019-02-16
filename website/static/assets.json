@@ -3,7 +3,17 @@
     "styles": [
       "/static/normalize.css",
       "/static/base.css",
-      "/static/layout.css"
+      "/static/layout.css",
+      "/static/css/sb-admin-2.css",
+      "/static/vendor/fontawesome-free/css/all.min.css"
+    ],
+    "scripts" : [
+      "/static/js/sb-admin-2.js"
+    ],
+    "vendor" : [
+      "/static/vendor/jquery/jquery.min.js",
+      "/static/vendor/bootstrap/js/bootstrap.bundle.min.js",
+      "/static/vendor/jquery-easing/jquery.easing.min.js"
     ]
   }
 }

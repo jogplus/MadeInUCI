@@ -16,6 +16,7 @@ class User(Base):
     email = Column(String(255), unique=True, nullable=False)
     _password = Column('password', String(100))
     name = Column(String(80))
+    picture = Column(String(255))
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
     updated_at = Column(
         DateTime,
