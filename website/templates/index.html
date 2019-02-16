@@ -85,13 +85,13 @@
 
             {% if current_user %}
               <li class="nav-item dropdown no-arrow"></li>
-                <a class="nav-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link" href="account/profile" role="button">
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ current_user.name }}</span>
                   <img class="img-profile rounded-circle" style="width:3em; height:3em" src="{{ current_user.picture }}">
                 </a>
               </li>
             {% else %}
-              <li class="nav-item mt-2">
+              <li class="nav-item">
                 <div class="account-info">
                   <div class="g-signin2" data-onsuccess="onSignIn" data-height="50"></div>
                   <form hidden id="google_form" method="post">
@@ -111,8 +111,8 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            <h1 class="h3 mb-0 text-gray-800">Top Projects</h1>
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Create Project</a>
           </div>
           
           <!-- Content Row -->

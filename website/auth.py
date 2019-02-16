@@ -50,7 +50,7 @@ def require_login(f):
     @wraps(f)
     def decorated(*args, **kwargs):
         if not current_user:
-            url = url_for('account.login', next=request.path)
+            url = url_for('front.home')
             return redirect(url)
         return f(*args, **kwargs)
     return decorated

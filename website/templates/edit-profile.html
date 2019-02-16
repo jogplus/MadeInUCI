@@ -1,3 +1,5 @@
+{% from "macros.html" import render_form %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,40 +37,30 @@
           <div class="col-xl-0 d-none d-lg-block"></div>
           <div class="col-xl-12">
             <div class="p-5">
-              <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Edit Profile</h1>
+              <div>
+                <h1 class="h4 text-gray-900 mb-4">Hello {{ current_user.name }}<a href=".." style="float:right;" class="fas fa-home fa-lg fa-fw "></a></h1>
               </div>
-              <form class="user">
+              <div class="user">
                 <div class="for-row">
-                  <div class="form-group col ml-5">
-                    <img class="img-fluid rounded shadow col-sm- mt-3 mb-4 mr-4" style="width: 20rem; height: 20rem; object-fit: cover;"
-                      src="img/undraw_posting_photo.svg" alt="">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="email" placeholder="hello@gmail.com">
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control form-control-user" id="exampleMajor" placeholder="Computer Science">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control form-control-user" id="exampleYear" placeholder="2021">
+                  <div class="form-group col d-flex justify-content-center">
+                    <img class="img-fluid rounded shadow col-sm- mt-3 mb-4 mr-4" style="width: 7rem; height: 7rem; object-fit: cover;"
+                      src="{{ current_user.picture }}" alt="">
                   </div>
                 </div>
                 <div class="form-row">
-                  <textarea class="form-control">Description: Skills, Interesets, etc.</textarea>
-
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control form-control-user" id="fmajor" placeholder="Computer Science" value="{{ current_user.major }}">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control form-control-user" id="fyear" placeholder="2021" value="{{ current_user.year }}">
+                  </div>
                 </div>
-                <!-- <div class="col-md-5">
-                  </div> -->
+                <div class="form-row">
+                  <textarea id="fdescription" class="form-control" placeholder="Description: Skills, Interests, etc.">{{ current_user.description }}</textarea>
+                </div>
+                <a href="#" id="save-btn" class="btn btn-facebook float-right shadow mt-2">
+                  Save Profile
+                </a>
             </div>
             <hr>
             <!-- Content Row -->
@@ -101,12 +93,8 @@
                 </div>
               </div>
             </div>
-
-            <!-- Content Row -->
-            <a href="index.html" class="btn btn-facebook btn-user btn-block">
-              <i class="fab fa-fw"></i> Add New Event
-            </a>
-            </form>
+          </div>
+            <form id="save-profile" method="post" hidden>{{ render_form(form) }}</form>
             <hr>
           </div>
         </div>
@@ -122,6 +110,16 @@
   {% for src in assets.base.scripts %}
     <script src="{{ src }}"></script>
   {% endfor %}
+  <script>
+      $("#save-btn").click(function() {
+
+        // Useful data for your client-side scripts:
+        $('#major').val($("#fmajor").val());
+        $('#year').val($("#fyear").val());
+        $('#description').val($("#fdescription").val());
+        $('#save-profile').submit();
+      });
+    </script>
 
 </body>
 
