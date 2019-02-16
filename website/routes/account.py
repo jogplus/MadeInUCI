@@ -69,3 +69,8 @@ def signup():
 @require_login
 def profile():
     return render_template('edit-profile.html')
+
+@bp.route('/project', methods=['GET', 'POST'])
+@require_login
+def project():
+    return render_template('edit-project.html')
