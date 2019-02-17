@@ -11,7 +11,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Profile</title>
+  <title>Made In UCI - Profile</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon-16x16.png') }}">
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -100,17 +101,17 @@
                         <div class="dropdown no-arrow">
                           <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            <a id="starcount-{{ project.id }}">{{ project.star_count }}</a>
+                            <a class="star-count" id="starcount-{{ project.id }}">{{ project.star_count }}</a>
                           </a>
                           {% if project.id in starsIDs %}
                           <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button" aria-haspopup="true"
                             aria-expanded="false">
-                            <i class="fas fa-star fa-md fa-fw text-400 yellow" id="star-{{ project.id }}"></i>
+                            <i class="star-btn fas fa-star fa-md fa-fw text-400 yellow" id="star-{{ project.id }}"></i>
                           </a>
                           {% else %}
                           <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button" aria-haspopup="true"
                             aria-expanded="false">
-                            <i class="fas fa-star fa-md fa-fw text-400" id="star-{{ project.id }}"></i>
+                            <i class="star-btn fas fa-star fa-md fa-fw text-400" id="star-{{ project.id }}"></i>
                           </a>
                           {% endif %}
                         </div>
@@ -151,17 +152,17 @@
                         <div class="dropdown no-arrow">
                           <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            <a id="starcount-{{ star[1].id }}">{{ star[1].star_count }}</a>
+                            <a class="star-count" id="starcount-{{ star[1].id }}">{{ star[1].star_count }}</a>
                           </a>
                           {% if star[1].id in starsIDs %}
                           <a class="dropdown-toggle" onclick="toggleStar({{ star[1].id }})" role="button" aria-haspopup="true"
                             aria-expanded="false">
-                            <i class="fas fa-star fa-md fa-fw text-400 yellow" id="star-{{ star[1].id }}"></i>
+                            <i class="star-btn fas fa-star fa-md fa-fw text-400 yellow" id="star-{{ star[1].id }}"></i>
                           </a>
                           {% else %}
                           <a class="dropdown-toggle" onclick="toggleStar({{ star[1].id }})" role="button" aria-haspopup="true"
                             aria-expanded="false">
-                            <i class="fas fa-star fa-md fa-fw text--400" id="star-{{ star[1].id }}"></i>
+                            <i class="star-btn fas fa-star fa-md fa-fw text--400" id="star-{{ star[1].id }}"></i>
                           </a>
                           {% endif %}
                         </div>
@@ -220,15 +221,18 @@
 
       });
 
-      if ($("#star-" + starid).hasClass("yellow")) {
-        $("#starcount-" + starid).text(parseInt($("#starcount-" + starid).text()) - 1);
-        $("#star-" + starid).removeClass("yellow")
-      } else {
-        console.log("doesn't have yellow")
-        $("#starcount-" + starid).text(parseInt($("#starcount-" + starid).text()) + 1);
-        $("#star-" + starid).addClass("yellow")
-      }
+
     }
+
+    $(".star-btn").click(function() {
+        if ($(this).hasClass("yellow")) {
+          $(this).parent().siblings(".star-count").text(parseInt($(this).parent().siblings(".star-count").text()) - 1);
+          $(this).removeClass("yellow")
+        } else {
+          $(this).parent().siblings(".star-count").text(parseInt($(this).parent().siblings(".star-count").text()) + 1);
+          $(this).addClass("yellow")
+        }
+    });
   </script>
 
 </body>

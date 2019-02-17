@@ -22,6 +22,10 @@
   <link rel="stylesheet" href="{{ src }}">
   {% endfor %}
 
+  <style>
+    .yellow {color: rgb(255, 217, 0) !important;}
+  </style>
+
   <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon-16x16.png') }}">
 
 </head>
@@ -59,19 +63,21 @@
 
             {% if current_user %}
             <!-- Nav Item - Log out -->
-            <li class="nav-item dropdown no-arrow p-0">
-              <a class="nav-link p-0" href="#" data-toggle="modal" data-target="#logoutModal">
-                <i class="fas fa-sign-out-alt fa-lg fa-fw mr-2 text-gray-400"></i>
-              </a>
-            </li>
+            <a href="project/create" class="d-none d-sm-inline-block btn btn-primary shadow-sm mt-3 mb-3 mr-1"><i class="fas fa-plus fa-sm text-white-50"></i>
+              Create Project</a>
             {% endif %}
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
             {% if current_user %}
+            <li class="nav-item dropdown no-arrow p-0">
+                <a class="nav-link p-0" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-lg fa-fw mr-2 text-gray-400"></i>
+                </a>
+              </li>
             <li class="nav-item dropdown no-arrow"></li>
             <a class="nav-link" href="account/profile" role="button">
-              <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ current_user.name }}</span>
+              <span class="mr-2 d-none d-lg-inline text-gray-600 large">{{ current_user.name }}</span>
               <img class="img-profile rounded-circle" style="width:3em; height:3em" src="{{ current_user.picture }}">
             </a>
             </li>
@@ -97,8 +103,6 @@
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Top Projects</h1>
-            <a href="project/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>
-              Create Project</a>
           </div>
 
           <!-- Content Row -->
@@ -112,17 +116,17 @@
                     <div class="dropdown no-arrow">
                       <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <a id="starcount-{{ project.id }}">{{ project.star_count }}</a>
+                        <a class="star-count" id="starcount-{{ project.id }}">{{ project.star_count }}</a>
                       </a>
                       {% if project.id in starsIDs %}
                       <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button" aria-haspopup="true"
                         aria-expanded="false">
-                        <i class="fas fa-star fa-md fa-fw text-400 yellow" id="star-{{ project.id }}"></i>
+                        <i class="star-btn fas fa-star fa-md fa-fw text-400 yellow" id="star-{{ project.id }}"></i>
                       </a>
                       {% else %}
                       <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button" aria-haspopup="true"
                         aria-expanded="false">
-                        <i class="fas fa-star fa-md fa-fw text-400" id="star-{{ project.id }}"></i>
+                        <i class="star-btn fas fa-star fa-md fa-fw text-400" id="star-{{ project.id }}"></i>
                       </a>
                       {% endif %}
                     </div>
@@ -130,7 +134,7 @@
                   <div class="card-body">
                     <div class="media">
                       <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;"
-                        src="img/undraw_posting_photo.svg" alt="">
+                        src="{{ project.picture }}" alt="">
                       <div class="media-body">
                         <p>{{ project.description }}</p>
                         <p style="float:left;">Created By: {{ project.name }}<p style="float:right;">{{
@@ -215,6 +219,21 @@
         $('#google-picture').val(picture);
         $('#google_form').submit();
       }
+
+      function toggleStar(starid) {
+        $.post("../project/star/" + starid, function (data) {
+        });
+      }
+
+      $(".star-btn").click(function() {
+          if ($(this).hasClass("yellow")) {
+            $(this).parent().siblings(".star-count").text(parseInt($(this).parent().siblings(".star-count").text()) - 1);
+            $(this).removeClass("yellow")
+          } else {
+            $(this).parent().siblings(".star-count").text(parseInt($(this).parent().siblings(".star-count").text()) + 1);
+            $(this).addClass("yellow")
+          }
+      });
     </script>
 </body>
 
