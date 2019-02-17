@@ -31,25 +31,30 @@ def create():
 
 @bp.route('/star/<id>', methods=['POST'])
 @require_login
-def star():
+def star(id):
+    id = int(id)
     project =Project.query.filter_by(id=id).first()
     user = User.query.filter_by(email=current_user.email).first()
     previousStar = Star.query.filter_by(userid=user.id, projectid=id).first()
 
-    if prevousStar:
+    if previousStar:
         # Star did exist
-        db.session.delete(prevousStar)
+        with db.auto_commit():
+            db.session.delete(previousStar)
         project.star_count -= 1
     else:
         # Star didn't exist
         star = Star()
-        star.userId = user.id
-        star.projectid = self.projectid
-        db.session.add(star)
+        star.userid = user.id
+        star.projectid = id
+        with db.auto_commit():
+            db.session.add(star)
 
         project.star_count += 1
 
-    db.session.add(project)
-    db.session.commit
+    with db.auto_commit():
+        db.session.add(project)
+    # db.session.add(project)
+    # db.session.commit
 
-    return
+    return redirect(url_for('front.home'))

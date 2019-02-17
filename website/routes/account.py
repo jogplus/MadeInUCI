@@ -6,6 +6,7 @@ from ..forms.user import AuthenticateForm, UserCreationForm, AuthenticateGoogle
 from ..forms.profile import ProfileForm
 from ..models.user import User
 from ..models.project import Project
+from ..models.star import Star
 from google.oauth2 import id_token
 from google.auth.transport import requests
 
@@ -57,7 +58,6 @@ def logout():
     _logout()
     return redirect(url_for('front.home'))
 
-
 @bp.route('/signup', methods=['GET', 'POST'])
 def signup():
     if current_user:
@@ -76,4 +76,6 @@ def profile():
         form.save(current_user.email)
     user = User.query.filter_by(email=current_user.email).first()
     projects = Project.query.filter_by(userid=user.id).all()
-    return render_template('edit-profile.html', form=form, projects=projects)
+    stars = Star.query.filter_by(userid=user.id).all()
+    stars = [s.projectid for s in stars]
+    return render_template('edit-profile.html', form=form, projects=projects, stars=stars)

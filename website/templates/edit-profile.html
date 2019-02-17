@@ -98,10 +98,17 @@
                             aria-haspopup="true" aria-expanded="false">
                             <a>{{ project.star_count }}</a>
                           </a>
-                          <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-star fa-sm fa-fw text-gray-400"></i>
-                          </a>
+                          {% if project.id in stars %}
+                            <a class="dropdown-toggle" id="star-{{ project.id }}" onclick="toggleStar({{ project.id }})" role="button" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
+                              <i class="fas fa-star fa-md fa-fw text-400" style="color: rgb(255, 217, 0);"></i>
+                            </a>
+                          {% else %}
+                            <a class="dropdown-toggle" id="star-{{ project.id }}" onclick="toggleStar({{ project.id }})" role="button" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
+                              <i class="fas fa-star fa-md fa-fw text-gray-400"></i>
+                            </a>
+                          {% endif %}
                         </div>
                       </div>
                       <div class="card-body">
@@ -184,6 +191,12 @@
       $('#description').val($("#fdescription").val());
       $('#save-profile').submit();
     });
+
+    function toggleStar(starid) {
+      $.post("../project/star/"+starid, function( data ) {
+        
+      });
+    }
   </script>
 
 </body>
