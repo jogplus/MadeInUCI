@@ -22,6 +22,10 @@
   <link rel="stylesheet" href="{{ src }}">
   {% endfor %}
 
+  <style>
+    .yellow {color: rgb(255, 217, 0) !important;}
+  </style>
+
   <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon-16x16.png') }}">
 
 </head>
@@ -112,17 +116,17 @@
                     <div class="dropdown no-arrow">
                       <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <a id="starcount-{{ project.id }}">{{ project.star_count }}</a>
+                        <a class="star-count" id="starcount-{{ project.id }}">{{ project.star_count }}</a>
                       </a>
                       {% if project.id in starsIDs %}
                       <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button" aria-haspopup="true"
                         aria-expanded="false">
-                        <i class="fas fa-star fa-md fa-fw text-400 yellow" id="star-{{ project.id }}"></i>
+                        <i class="star-btn fas fa-star fa-md fa-fw text-400 yellow" id="star-{{ project.id }}"></i>
                       </a>
                       {% else %}
                       <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button" aria-haspopup="true"
                         aria-expanded="false">
-                        <i class="fas fa-star fa-md fa-fw text-400" id="star-{{ project.id }}"></i>
+                        <i class="star-btn fas fa-star fa-md fa-fw text-400" id="star-{{ project.id }}"></i>
                       </a>
                       {% endif %}
                     </div>
@@ -215,6 +219,21 @@
         $('#google-picture').val(picture);
         $('#google_form').submit();
       }
+
+      function toggleStar(starid) {
+        $.post("../project/star/" + starid, function (data) {
+        });
+      }
+
+      $(".star-btn").click(function() {
+          if ($(this).hasClass("yellow")) {
+            $(this).parent().siblings(".star-count").text(parseInt($(this).parent().siblings(".star-count").text()) - 1);
+            $(this).removeClass("yellow")
+          } else {
+            $(this).parent().siblings(".star-count").text(parseInt($(this).parent().siblings(".star-count").text()) + 1);
+            $(this).addClass("yellow")
+          }
+      });
     </script>
 </body>
 
