@@ -13,19 +13,12 @@ class User(Base):
     __tablename__ = 'user'
 
     id = Column(Integer, primary_key=True)
-    email = Column(String(255), unique=True, nullable=False)
-    _password = Column('password', String(100))
+    email = Column(String(255))
     name = Column(String(80))
     picture = Column(String(255))
     description = Column(String(2556))
     major = Column(String(80))
     year = Column(String(6))
-    created_at = Column(DateTime, default=datetime.datetime.utcnow)
-    updated_at = Column(
-        DateTime,
-        default=datetime.datetime.utcnow,
-        onupdate=datetime.datetime.utcnow,
-    )
 
     def get_user_id(self):
         return self.id

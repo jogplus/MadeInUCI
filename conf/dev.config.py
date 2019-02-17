@@ -1,6 +1,6 @@
 SECRET_KEY = 'your-secret'
 
-SQLALCHEMY_DATABASE_URI = 'mysql://ChaseC:test@/sys?unix_socket=/cloudsql/madeinuci:us-west2:made-in-uci-db'
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://ChaseC:test@/madeinuci?unix_socket=/cloudsql/madeinuci:us-west2:made-in-uci-db'
 OAUTH_CACHE_DIR = '_cache'
 
 GOOGLE_CLIENT_KEY = '4197462224-o31fnltrkn0dv4990824m1afans52o50.apps.googleusercontent.com'
