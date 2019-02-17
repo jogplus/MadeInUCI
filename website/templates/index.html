@@ -14,11 +14,12 @@
   <title>Made In UCI</title>
 
   <!-- Custom fonts for this template-->
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
 
   <!-- Custom styles for this template-->
   {% for src in assets.base.styles %}
-    <link rel="stylesheet" href="{{ src }}">
+  <link rel="stylesheet" href="{{ src }}">
   {% endfor %}
 
 </head>
@@ -40,7 +41,8 @@
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search"
+                aria-describedby="basic-addon2">
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button">
                   <i class="fas fa-search fa-sm"></i>
@@ -54,14 +56,16 @@
 
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
             <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
               </a>
               <!-- Dropdown - Messages -->
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                      aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
                         <i class="fas fa-search fa-sm"></i>
@@ -73,32 +77,32 @@
             </li>
 
             {% if current_user %}
-              <!-- Nav Item - Log out -->
-              <li class="nav-item dropdown no-arrow p-0">
-                <a class="nav-link p-0" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-lg fa-fw mr-2 text-gray-400"></i>
-                </a>
-              </li>
+            <!-- Nav Item - Log out -->
+            <li class="nav-item dropdown no-arrow p-0">
+              <a class="nav-link p-0" href="#" data-toggle="modal" data-target="#logoutModal">
+                <i class="fas fa-sign-out-alt fa-lg fa-fw mr-2 text-gray-400"></i>
+              </a>
+            </li>
             {% endif %}
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
             {% if current_user %}
-              <li class="nav-item dropdown no-arrow"></li>
-                <a class="nav-link" href="account/profile" role="button">
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ current_user.name }}</span>
-                  <img class="img-profile rounded-circle" style="width:3em; height:3em" src="{{ current_user.picture }}">
-                </a>
-              </li>
+            <li class="nav-item dropdown no-arrow"></li>
+            <a class="nav-link" href="account/profile" role="button">
+              <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ current_user.name }}</span>
+              <img class="img-profile rounded-circle" style="width:3em; height:3em" src="{{ current_user.picture }}">
+            </a>
+            </li>
             {% else %}
-              <li class="nav-item">
-                <div class="account-info">
-                  <div class="g-signin2" data-onsuccess="onSignIn" data-height="50"></div>
-                  <form hidden id="google_form" method="post">
-                    <div>{{ render_form(google_form) }}</div>
-                  </form>
-                </div>
-              </li>
+            <li class="nav-item">
+              <div class="account-info">
+                <div class="g-signin2" data-onsuccess="onSignIn" data-height="50"></div>
+                <form hidden id="google_form" method="post">
+                  <div>{{ render_form(google_form) }}</div>
+                </form>
+              </div>
+            </li>
             {% endif %}
 
           </ul>
@@ -112,110 +116,125 @@
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Top Projects</h1>
-            <a href="project/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Create Project</a>
+            <a href="project/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>
+              Create Project</a>
           </div>
-          
+
           <!-- Content Row -->
-          <div class="row">
-            <!-- Illustrations -->
-            <div class="card shadow col mb-4 p-0">
-              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">{ Project Name }</h6>
-                <div class="dropdown no-arrow">
-                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <a>444</a>
-                  </a>
-                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-star fa-sm fa-fw text-gray-400"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="media">
-                  <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;" src="img/undraw_posting_photo.svg" alt="">
-                  <div class="media-body">
-                    <p>{ Project Description }</p>
-                    <p style="float:left;" >{ Username }<p style="float:right;" >{ Date }</p></p>
+          <div id="events-ordered" class="row">
+            <div class="container">
+              {% for project in projects %}
+              <div class="row">
+                <div class="card shadow col mb-4 p-0">
+                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">{{ project.title }}</h6>
+                    <div class="dropdown no-arrow">
+                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <a>{{ project.star_count }}</a>
+                      </a>
+                      {% if project.id in starsIDs %}
+                      <a class="dropdown-toggle" id="star-{{ project.id }}" onclick="toggleStar({{ project.id }})" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-star fa-md fa-fw text-400" style="color: rgb(255, 217, 0);"></i>
+                      </a>
+                      {% else %}
+                      <a class="dropdown-toggle" id="star-{{ project.id }}" onclick="toggleStar({{ project.id }})" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-star fa-md fa-fw text-gray-400"></i>
+                      </a>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="media">
+                      <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;"
+                        src="img/undraw_posting_photo.svg" alt="">
+                      <div class="media-body">
+                        <p>{{ project.description }}</p>
+                        <p style="float:left;">Created By: {{ project.name }}<p style="float:right;">{{
+                            project.start_date }}</p>
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              {% endfor %}
+            </div>
+            <!-- Content Row -->
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Your Website 2019</span>
             </div>
           </div>
-
-          <!-- Content Row -->
-
-        </div>
-        <!-- /.container-fluid -->
+        </footer>
+        <!-- End of Footer -->
 
       </div>
-      <!-- End of Main Content -->
+      <!-- End of Content Wrapper -->
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="account/logout">Logout</a>
           </div>
         </div>
-      </footer>
-      <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="account/logout">Logout</a>
-        </div>
       </div>
     </div>
-  </div>
-  {% for src in assets.base.vendor %}
+    {% for src in assets.base.vendor %}
     <script src="{{ src }}"></script>
-  {% endfor %}
-  {% for src in assets.base.scripts %}
+    {% endfor %}
+    {% for src in assets.base.scripts %}
     <script src="{{ src }}"></script>
-  {% endfor %}
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <script>
-    function onSignIn(googleUser) {
-      // Useful data for your client-side scripts:
-      var profile = googleUser.getBasicProfile();
-      var email = profile.getEmail();
-      var name = profile.getName();
-      var picture = profile.getImageUrl();
-      // The ID token you need to pass to your backend:
-      var id_token = googleUser.getAuthResponse().id_token;
+    {% endfor %}
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        var email = profile.getEmail();
+        var name = profile.getName();
+        var picture = profile.getImageUrl();
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
 
-      var auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut();
-      console.log("submit")
-      $('#google-id').val(id_token);
-      $('#google-email').val(email);
-      $('#google-name').val(name);
-      $('#google-picture').val(picture);
-      $('#google_form').submit();
-    }
-  </script>
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut();
+        console.log("submit")
+        $('#google-id').val(id_token);
+        $('#google-email').val(email);
+        $('#google-name').val(name);
+        $('#google-picture').val(picture);
+        $('#google_form').submit();
+      }
+    </script>
 </body>
 
 </html>
