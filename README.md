@@ -1,81 +1,32 @@
-# Authlib Playground
+# Made In UCI
+In support of entrepreneurial anteaters.
 
-> An online playground for [Authlib](https://authlib.org).
+<html>
+    <img src="https://raw.githubusercontent.com/jogplus/MadeInUCI/master/pics/homepage.png" alt="Screenshot of Made In UCI homepage" height="300">
+</html>
 
-Play Authlib with <https://play.authlib.org/>.
+Made In UCI allows for students to show off their projects. Projects can vary from a business idea to a volunteering event.
 
+Our platform serves to showcase the projects that inspire entrepreneurship, creativity, and public outreach. Projects can vary from software, to a business idea, to an engineering project, to a volunteering event. Made In UCI helps facilitate collaboration and exposure for UCI students, allowing them to reach more people and take their ideas to the next level.
 
-## Dive into Authlib
+### How we built it
+* We built the platform using Flask and SQLAlchemy to keep track of projects, users, and stars.
+* The app is also deployed on Google Cloud Platform App Engine using a SQL database.
+* With love.
 
-1. Create an account at <https://play.authlib.org/>
-2. Try Authlib client features with **Connects**
-3. Try Authlib OAuth servers with **Apps**
+### Accomplishments that we're proud of
+* Understanding the Flask framework and SQLAlchemy.
+* General UI of the website since it looks and feels very modern.
+* The ability to "star" projects
+* Deploying the project to Google Cloud Platform
+* We were also able to complete most of the features we had planned.
 
-## OAuth 2 Server
+### What's next for Made In UCI
+The Made In UCI website is the first phase of a larger “Made In UCI” initiative that hopes to help cultivate and show off the entrepreneurial spirit at UCI. We would like to expand the platform to have a more robust profile system, allowing users to search through the talent pool at UCI to build a team. Need an iOS developer? A graphic designer? A backend engineer? Made In UCI will help you form the perfect team.  
 
-Read the documentation on [OAuth 2 Flask server](https://docs.authlib.org/en/latest/flask/oauth2.html).
+Additional future features: search by project/user, comment on projects, iFrames for previewing projects, show top projects of month/year/all time
 
-### Endpoints
-
-- Authorization Endpoint: `https://play.authlib.org/oauth2/authorize`
-- Token Endpoint: `https://play.authlib.org/oauth2/token`
-- Revocation Endpoint: `https://play.authlib.org/oauth2/revoke`
-
-### APIs
-
-- User profile (no scope): `https://play.authlib.org/api/2/me`
-- User email (scope: email): `https://play.authlib.org/api/2/me/email`
-- User connects (scope: connects): `https://play.authlib.org/api/2/connects`
-
-## OAuth 1 Server
-
-Read the documentation on [OAuth 1 Flask server](https://docs.authlib.org/en/latest/flask/oauth1.html).
-
-### Endpoints
-
-- Authorization Endpoint: `https://play.authlib.org/oauth1/authorize`
-- Temporary Credentials Endpoint: `https://play.authlib.org/oauth1/init`
-- Token Credentials Endpoint: `https://play.authlib.org/oauth1/token`
-
-### APIs
-
-- User profile: `https://play.authlib.org/api/1/me`
-
----
-
-## Local development
-
-To run this playground, you need to clone this repo at first:
-
-    $ git clone git@github.com:authlib/playground.git
-
-Create an virtualenv, and install the requirements:
-
-    $ pip install -r requirements.txt
-
-Copy the sample conf file in `conf` directory:
-
-    $ cp conf/dev.config.py.sample conf/dev.config.py
-
-You need to register client Apps in these websites:
-
-1. Google
-2. [Twitter](https://apps.twitter.com/)
-3. Facebook
-4. GitHub
-
-Get the client_id/consumer_key and client_secret/consumer_secret from these
-services and fill them into `conf/dev.config.py`.
-
-Please remember to set the right callback uri:
-
-1. Google: `http://127.0.0.1:5000/connect/authorize/google`
-2. Twitter: `http://127.0.0.1:5000/connect/authorize/twitter`
-3. Facebook: `http://127.0.0.1:5000/connect/authorize/facebook`
-4. GitHub: `http://127.0.0.1:5000/connect/authorize/github`
-
-Run the example server with:
-
-    $ export FLASK_APP=app.py
-    $ export FLASK_DEBUG=1
-    $ flask run
+## Contributors
+[Tristan Jogminas](https://www.linkedin.com/in/tristan-jogminas/)  
+[Zachary Pinto](https://www.linkedin.com/in/zacharypinto/)  
+[Chase Carnaroli](https://www.linkedin.com/in/chasecarnaroli/)  
