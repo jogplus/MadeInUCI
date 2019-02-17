@@ -59,19 +59,21 @@
 
             {% if current_user %}
             <!-- Nav Item - Log out -->
-            <li class="nav-item dropdown no-arrow p-0">
-              <a class="nav-link p-0" href="#" data-toggle="modal" data-target="#logoutModal">
-                <i class="fas fa-sign-out-alt fa-lg fa-fw mr-2 text-gray-400"></i>
-              </a>
-            </li>
+            <a href="project/create" class="d-none d-sm-inline-block btn btn-primary shadow-sm mt-3 mb-3 mr-1"><i class="fas fa-plus fa-sm text-white-50"></i>
+              Create Project</a>
             {% endif %}
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
             {% if current_user %}
+            <li class="nav-item dropdown no-arrow p-0">
+                <a class="nav-link p-0" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-lg fa-fw mr-2 text-gray-400"></i>
+                </a>
+              </li>
             <li class="nav-item dropdown no-arrow"></li>
             <a class="nav-link" href="account/profile" role="button">
-              <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ current_user.name }}</span>
+              <span class="mr-2 d-none d-lg-inline text-gray-600 large">{{ current_user.name }}</span>
               <img class="img-profile rounded-circle" style="width:3em; height:3em" src="{{ current_user.picture }}">
             </a>
             </li>
@@ -97,8 +99,6 @@
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Top Projects</h1>
-            <a href="project/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>
-              Create Project</a>
           </div>
 
           <!-- Content Row -->
@@ -130,7 +130,7 @@
                   <div class="card-body">
                     <div class="media">
                       <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;"
-                        src="img/undraw_posting_photo.svg" alt="">
+                        src="{{ project.picture }}" alt="">
                       <div class="media-body">
                         <p>{{ project.description }}</p>
                         <p style="float:left;">Created By: {{ project.name }}<p style="float:right;">{{
