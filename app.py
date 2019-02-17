@@ -19,7 +19,6 @@ if is_dev:
 else:
     app = create_app()
 
-
 @app.cli.command()
 def initdb():
     db.create_all()

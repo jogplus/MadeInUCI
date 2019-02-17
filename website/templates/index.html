@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="{{ src }}">
   {% endfor %}
 
+  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon-16x16.png') }}">
+
 </head>
 
 <body id="page-top">
@@ -39,7 +41,8 @@
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <h1 class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100"><i class="fas fa-code"></i> Made In UCI</h1>
+          <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search"
                 aria-describedby="basic-addon2">
@@ -49,32 +52,10 @@
                 </button>
               </div>
             </div>
-          </form>
+          </form> -->
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                      aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
 
             {% if current_user %}
             <!-- Nav Item - Log out -->
@@ -131,17 +112,17 @@
                     <div class="dropdown no-arrow">
                       <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <a>{{ project.star_count }}</a>
+                        <a id="starcount-{{ project.id }}">{{ project.star_count }}</a>
                       </a>
                       {% if project.id in starsIDs %}
-                      <a class="dropdown-toggle" id="star-{{ project.id }}" onclick="toggleStar({{ project.id }})" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-star fa-md fa-fw text-400" style="color: rgb(255, 217, 0);"></i>
+                      <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="fas fa-star fa-md fa-fw text-400 yellow" id="star-{{ project.id }}"></i>
                       </a>
                       {% else %}
-                      <a class="dropdown-toggle" id="star-{{ project.id }}" onclick="toggleStar({{ project.id }})" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-star fa-md fa-fw text-gray-400"></i>
+                      <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="fas fa-star fa-md fa-fw text-400" id="star-{{ project.id }}"></i>
                       </a>
                       {% endif %}
                     </div>
@@ -168,21 +149,13 @@
         </div>
         <!-- End of Main Content -->
 
-<<<<<<< HEAD
+
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Your Website 2019</span>
+              <span>Copyright &copy; Made In UCI 2019</span>
             </div>
-=======
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Made In UCI 2019</span>
->>>>>>> c231efb274d5ddfdfe1f073955c0386a75946e71
-          </div>
         </footer>
         <!-- End of Footer -->
 

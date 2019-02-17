@@ -15,8 +15,8 @@ def home():
     google_form = AuthenticateGoogle(prefix="google")
     google_form.validate_on_submit()
     projects = Project.query.all()
-    projects = sorted(projects, key=lambda p: p.star_count)
-    starIDs = []
+    projects = sorted(projects, key=lambda p: p.star_count, reverse=True)
+    starsIDs = []
     if current_user:
         starsIDs = [s.projectid for s in Star.query.filter_by(userid=current_user.id).all()]
-    return render_template('index.html', google_form=google_form, projects=projects, starIDs=starIDs)
+    return render_template('index.html', google_form=google_form, projects=projects, starsIDs=starsIDs)

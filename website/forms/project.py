@@ -19,6 +19,7 @@ class ProjectForm(BaseForm):
         project = Project(title=self.title.data)
         project.userid = user.id
         project.name = user.name
+        project.picture = user.picture
         project.star_count = 0
         project.url = self.url.data
         project.description = self.description.data

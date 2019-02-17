@@ -37,6 +37,7 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Create Project</h1>
               </div>
+              <div class="container">
               <form class="user">
                 <div class="form-group">
                 <input type="text" class="form-control" id="ftitle" placeholder="Project Title">
@@ -55,22 +56,21 @@
                 <div class="form-group">
                   <textarea class="form-control" placeholder="Description: Tell us about your project." id="fdescription"></textarea>
                 </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <a id="submit" class="btn btn-facebook btn-user" style="float:left;">
+                <div class="form-row float-right mt-3 mb-3">
+                    <div class="form-group col-xs-12">
+                        <a href="#" id="submit" class="btn btn-facebook float-right">
                           Create Project
                         </a>
                     </div>
-                    <div class="form-group">
-                        <a href="" class="btn btn-warning btn-user">
+                    <div class="form-group col-xs-12">
+                        <a href="/" class="btn btn-warning float-right">
                           Cancel
                         </a>
                     </div>
                 </div>
             </form>
+            </div>
             <form id="save-project" method="post" hidden>{{ render_form(form) }}</form>
-            <hr>
           </div>
         </div>
       </div>
