@@ -131,17 +131,17 @@
                     <div class="dropdown no-arrow">
                       <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <a>{{ project.star_count }}</a>
+                        <a id="starcount-{{ project.id }}">{{ project.star_count }}</a>
                       </a>
                       {% if project.id in starsIDs %}
-                      <a class="dropdown-toggle" id="star-{{ project.id }}" onclick="toggleStar({{ project.id }})" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-star fa-md fa-fw text-400" style="color: rgb(255, 217, 0);"></i>
+                      <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="fas fa-star fa-md fa-fw text-400 yellow" id="star-{{ project.id }}"></i>
                       </a>
                       {% else %}
-                      <a class="dropdown-toggle" id="star-{{ project.id }}" onclick="toggleStar({{ project.id }})" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-star fa-md fa-fw text-gray-400"></i>
+                      <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="fas fa-star fa-md fa-fw text-400" id="star-{{ project.id }}"></i>
                       </a>
                       {% endif %}
                     </div>
@@ -168,21 +168,13 @@
         </div>
         <!-- End of Main Content -->
 
-<<<<<<< HEAD
+
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Your Website 2019</span>
+              <span>Copyright &copy; Made In UCI 2019</span>
             </div>
-=======
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Made In UCI 2019</span>
->>>>>>> c231efb274d5ddfdfe1f073955c0386a75946e71
-          </div>
         </footer>
         <!-- End of Footer -->
 
