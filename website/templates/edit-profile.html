@@ -89,7 +89,7 @@
               </div>
               <hr>
               <!-- Content Row -->
-              <label for="event-created"> Events Created</label>
+              <label for="event-created"> Created Projects</label>
               <div id="events-created" class="row">
                 <!-- User Events -->
                 <div class="container">
@@ -124,7 +124,7 @@
                           <div class="media-body">
                             <p>Description: {{ project.description }}</p>
                             <p class="mb-0 font-italic">{{ project.name }}</p>
-                            <p class="mb-0 font-italic" style="float:left;">Project URL: <a href="{{ project.url }}">{{
+                            <p class="mb-0 font-italic" style="float:left;">Project URL: <a target="_blank" href="{{ project.url }}">{{
                                 project.url
                                 }}</a>
                               <p class="mb-0" style="float:right;">{{
@@ -141,7 +141,7 @@
 
               <hr>
               <!-- Content Row -->
-              <label for="event-to-attend"> Starred Events</label>
+              <label for="event-to-attend"> Starred Projects</label>
               <div id="events-to-attend" class="row">
                 <!-- User Events -->
                 <div class="container">
@@ -175,7 +175,7 @@
                           <div class="media-body">
                             <p>Description: {{ star[1].description }}</p>
                             <p class="mb-0 font-italic">{{ star[1].name }}</p>
-                            <p class="mb-0 font-italic" style="float:left;">Project URL: <a href="{{ star[1].url }}">{{
+                            <p class="mb-0 font-italic" style="float:left;">Project URL: <a target="_blank" href="http://{{ star[1].url }}">{{
                                 star[1].url
                                 }}</a>
                               <p class="

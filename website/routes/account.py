@@ -79,4 +79,5 @@ def profile():
     projects = Project.query.filter_by(userid=user.id).all()
     stars = db.session.query(Star, Project).filter(Star.userid == user.id).filter(Project.id == Star.projectid).all()
     starsIDs = [s[0].projectid for s in stars]
-    return render_template('edit-profile.html', form=form, projects=projects, stars=stars, starsIDs=starsIDs)
+    stars = [s for s in stars if s[1].userid != current_user.id]
+    return render_template('edit-profile.html', form=form, projects=projects, stars=stars, starsIDs=starsIDs, user=current_user)

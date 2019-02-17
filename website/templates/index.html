@@ -119,6 +119,7 @@
                         aria-haspopup="true" aria-expanded="false">
                         <a class="star-count" id="starcount-{{ project.id }}">{{ project.star_count }}</a>
                       </a>
+                      {% if current_user %}
                       {% if project.id in starsIDs %}
                       <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button" aria-haspopup="true"
                         aria-expanded="false">
@@ -128,6 +129,11 @@
                       <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button" aria-haspopup="true"
                         aria-expanded="false">
                         <i class="star-btn fas fa-star fa-md fa-fw text-400" id="star-{{ project.id }}"></i>
+                      </a>
+                      {% endif %}
+                      {% else %}
+                      <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-star fa-md fa-fw text-400" id="star-{{ project.id }}"></i>
                       </a>
                       {% endif %}
                     </div>
@@ -140,7 +146,7 @@
                       <div class="media-body">
                         <p>Description: {{ project.description }}</p>
                         <p class="mb-0 font-italic">{{ project.name }}</p>
-                        <p class="mb-0 font-italic" style="float:left;">Project URL: <a href="{{ project.url }}">{{
+                        <p class="mb-0 font-italic" style="float:left;">Project URL: <a target="_blank" href="{{ project.url }}">{{
                             project.url
                             }}</a>
                           <p class="mb-0" style="float:right;">{{

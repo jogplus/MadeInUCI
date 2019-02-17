@@ -21,6 +21,10 @@ class ProjectForm(BaseForm):
         project.name = user.name
         project.picture = user.picture
         project.star_count = 0
+
+        if not (self.url.data.startswith('http://') or self.url.data.startswith('https://')):
+            self.url.data = 'http://' + self.url.data
+        
         project.url = self.url.data
         project.description = self.description.data
         project.start_date = self.start_date.data
