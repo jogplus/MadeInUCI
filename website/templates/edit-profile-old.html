@@ -1,0 +1,126 @@
+{% from "macros.html" import render_form %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Profile</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+    <!-- Custom styles for this template-->
+  {% for src in assets.base.styles %}
+    <link rel="stylesheet" href="{{ src }}">
+  {% endfor %}
+
+</head>
+
+<body class="bg-gradient-primary">
+
+  <div class="container">
+
+    <div class="card o-hidden border-0 shadow-xl my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-xl-0 d-none d-lg-block"></div>
+          <div class="col-xl-12">
+            <div class="p-5">
+              <div>
+                <h1 class="h4 text-gray-900 mb-4">Hello {{ current_user.name }}<a href=".." style="float:right;" class="fas fa-home fa-lg fa-fw "></a></h1>
+              </div>
+              <div class="user">
+                <div class="for-row">
+                  <div class="form-group col d-flex justify-content-center">
+                    <img class="img-fluid rounded shadow col-sm- mt-3 mb-4 mr-4" style="width: 7rem; height: 7rem; object-fit: cover;"
+                      src="{{ current_user.picture }}" alt="">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control form-control-user" id="fmajor" placeholder="Computer Science" value="{{ current_user.major }}">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control form-control-user" id="fyear" placeholder="2021" value="{{ current_user.year }}">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <textarea id="fdescription" class="form-control" placeholder="Description: Skills, Interests, etc.">{{ current_user.description }}</textarea>
+                </div>
+                <a href="#" id="save-btn" class="btn btn-facebook float-right shadow mt-2">
+                  Save Profile
+                </a>
+            </div>
+            <hr>
+            <!-- Content Row -->
+            <div class="row">
+              <!-- Illustrations -->
+              <div class="card shadow col mb-4 p-0">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">{ Project Name }</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      <a>444</a>
+                    </a>
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-star fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="media">
+                    <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;"
+                      src="img/undraw_posting_photo.svg" alt="">
+                    <div class="media-body">
+                      <p>{ Project Description }</p>
+                      <p style="float:left;">{ Username }<p style="float:right;">{ Date }</p>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <form id="save-profile" method="post" hidden>{{ render_form(form) }}</form>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  {% for src in assets.base.vendor %}
+    <script src="{{ src }}"></script>
+  {% endfor %}
+  {% for src in assets.base.scripts %}
+    <script src="{{ src }}"></script>
+  {% endfor %}
+  <script>
+      $("#save-btn").click(function() {
+
+        // Useful data for your client-side scripts:
+        $('#major').val($("#fmajor").val());
+        $('#year').val($("#fyear").val());
+        $('#description').val($("#fdescription").val());
+        $('#save-profile').submit();
+      });
+    </script>
+
+</body>
+
+</html>
