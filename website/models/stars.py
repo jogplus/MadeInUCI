@@ -13,5 +13,5 @@ class Stars(Base):
     __tablename__ = 'stars'
 
     id = Column(Integer, primary_key=True)
-    userID = Column(Integer)
-    projectID = Column(Integer)
+    userid = Column(Integer)
+    projectid = Column(Integer)
