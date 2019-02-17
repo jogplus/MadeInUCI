@@ -1,10 +1,10 @@
 SECRET_KEY = 'your-secret'
 
-SQLALCHEMY_DATABASE_URI = 'sqlite:///db.sqlite'
+SQLALCHEMY_DATABASE_URI = 'mysql://ChaseC:test@/sys?unix_socket=/cloudsql/madeinuci:us-west2:made-in-uci-db'
 OAUTH_CACHE_DIR = '_cache'
 
-GOOGLE_CLIENT_KEY = '861011153873-8a1akes1g91ht64l699r58onforrjfgi.apps.googleusercontent.com'
-GOOGLE_CLIENT_SECRET = 'MdQwMuwxHLtt2pEGA5UJrtUl'
+GOOGLE_CLIENT_KEY = '4197462224-o31fnltrkn0dv4990824m1afans52o50.apps.googleusercontent.com'
+GOOGLE_CLIENT_SECRET = 'zeRdUWtM-BhfXtcSsgw1BTdr'
 
 TWITTER_CLIENT_KEY = ''
 TWITTER_CLIENT_SECRET = ''
