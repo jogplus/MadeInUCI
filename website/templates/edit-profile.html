@@ -120,8 +120,12 @@
                           <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;"
                             src="{{ project.picture }}" alt="">
                           <div class="media-body">
-                            <p>{{ project.description }}</p>
-                            <p style="float:left;">Created By: {{ project.name }}<p style="float:right;">{{
+                            <p>Description: {{ project.description }}</p>
+                            <p class="mb-0 font-italic">{{ project.name }}</p>
+                            <p class="mb-0 font-italic" style="float:left;">Project URL: <a href="{{ project.url }}">{{
+                                project.url
+                                }}</a>
+                              <p class="mb-0" style="float:right;">{{
                                 project.start_date }}</p>
                             </p>
                           </div>
@@ -135,7 +139,7 @@
 
               <hr>
               <!-- Content Row -->
-              <label for="event-to-attend"> Stared Events</label>
+              <label for="event-to-attend"> Starred Events</label>
               <div id="events-to-attend" class="row">
                 <!-- User Events -->
                 <div class="container">
@@ -167,8 +171,13 @@
                           <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;"
                             src="{{ star[1].picture }}" alt="">
                           <div class="media-body">
-                            <p>{{ star[1].description }}</p>
-                            <p style="float:left;">Created By: {{ star[1].name }}<p style="float:right;">{{
+                            <p>Description: {{ star[1].description }}</p>
+                            <p class="mb-0 font-italic">{{ star[1].name }}</p>
+                            <p class="mb-0 font-italic" style="float:left;">Project URL: <a href="{{ star[1].url }}">{{
+                                star[1].url
+                                }}</a>
+                              <p class="
+                                mb-0" style="float:right;">{{
                                 star[1].start_date }}</p>
                             </p>
                           </div>
