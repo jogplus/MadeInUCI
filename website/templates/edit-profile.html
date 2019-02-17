@@ -43,7 +43,7 @@
           <div class="col-xl-12">
             <div class="p-5">
               <div>
-                <h1 class="h4 text-gray-900 mb-4">Hello {{ current_user.name }}<a href=".." style="float:right;" class="fas fa-home fa-lg fa-fw "></a></h1>
+                <h1 class="h4 text-gray-900 mb-4">Hello, {{ current_user.name }}<a href=".." style="float:right;" class="fas fa-home fa-lg fa-fw "></a></h1>
               </div>
               <div class="user">
                 <div class="for-row">
@@ -97,24 +97,25 @@
                   <div class="row" id="project-{{ project.id }}">
                     <div class="card shadow col mb-4 p-0">
                       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h5 class="m-0 font-weight-bold text-primary">{{ project.title }} <a href="#" onclick="deleteProject({{ project.id }})" class="fas fa-trash-alt ml-2 fa-sm" style="color:rgb(192, 49, 49)"></a></h6>
-                        <div class="dropdown no-arrow">
-                          <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <a class="star-count" id="starcount-{{ project.id }}">{{ project.star_count }}</a>
-                          </a>
-                          {% if project.id in starsIDs %}
-                          <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button" aria-haspopup="true"
-                            aria-expanded="false">
-                            <i class="star-btn fas fa-star fa-md fa-fw text-400 yellow" id="star-{{ project.id }}"></i>
-                          </a>
-                          {% else %}
-                          <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button" aria-haspopup="true"
-                            aria-expanded="false">
-                            <i class="star-btn fas fa-star fa-md fa-fw text-400" id="star-{{ project.id }}"></i>
-                          </a>
-                          {% endif %}
-                        </div>
+                        <h5 class="m-0 font-weight-bold text-primary">{{ project.title }} <a href="#" onclick="deleteProject({{ project.id }})"
+                            class="fas fa-trash-alt ml-2 fa-sm" style="color:rgb(192, 49, 49)"></a></h6>
+                          <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
+                              <a class="star-count" id="starcount-{{ project.id }}">{{ project.star_count }}</a>
+                            </a>
+                            {% if project.id in starsIDs %}
+                            <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button"
+                              aria-haspopup="true" aria-expanded="false">
+                              <i class="star-btn fas fa-star fa-md fa-fw text-400 yellow" id="star-{{ project.id }}"></i>
+                            </a>
+                            {% else %}
+                            <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button"
+                              aria-haspopup="true" aria-expanded="false">
+                              <i class="star-btn fas fa-star fa-md fa-fw text-400" id="star-{{ project.id }}"></i>
+                            </a>
+                            {% endif %}
+                          </div>
                       </div>
                       <div class="card-body">
                         <div class="media">
@@ -149,23 +150,23 @@
                     <div class="card shadow col mb-4 p-0">
                       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h5 class="m-0 font-weight-bold text-primary">{{ star[1].title }}</h6>
-                        <div class="dropdown no-arrow">
-                          <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <a class="star-count" id="starcount-{{ star[1].id }}">{{ star[1].star_count }}</a>
-                          </a>
-                          {% if star[1].id in starsIDs %}
-                          <a class="dropdown-toggle" onclick="toggleStar({{ star[1].id }})" role="button" aria-haspopup="true"
-                            aria-expanded="false">
-                            <i class="star-btn fas fa-star fa-md fa-fw text-400 yellow" id="star-{{ star[1].id }}"></i>
-                          </a>
-                          {% else %}
-                          <a class="dropdown-toggle" onclick="toggleStar({{ star[1].id }})" role="button" aria-haspopup="true"
-                            aria-expanded="false">
-                            <i class="star-btn fas fa-star fa-md fa-fw text--400" id="star-{{ star[1].id }}"></i>
-                          </a>
-                          {% endif %}
-                        </div>
+                          <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
+                              <a class="star-count" id="starcount-{{ star[1].id }}">{{ star[1].star_count }}</a>
+                            </a>
+                            {% if star[1].id in starsIDs %}
+                            <a class="dropdown-toggle" onclick="toggleStar({{ star[1].id }})" role="button"
+                              aria-haspopup="true" aria-expanded="false">
+                              <i class="star-btn fas fa-star fa-md fa-fw text-400 yellow" id="star-{{ star[1].id }}"></i>
+                            </a>
+                            {% else %}
+                            <a class="dropdown-toggle" onclick="toggleStar({{ star[1].id }})" role="button"
+                              aria-haspopup="true" aria-expanded="false">
+                              <i class="star-btn fas fa-star fa-md fa-fw text--400" id="star-{{ star[1].id }}"></i>
+                            </a>
+                            {% endif %}
+                          </div>
                       </div>
                       <div class="card-body">
                         <div class="media">
@@ -217,24 +218,22 @@
     });
 
     function toggleStar(starid) {
-      $.post("../project/star/" + starid, function (data) {
-      });
+      $.post("../project/star/" + starid, function (data) {});
     }
 
     function deleteProject(projectid) {
-      $.post("../project/delete/" + projectid, function (data) {
-      });
-      $("#project-"+projectid).remove();
+      $.post("../project/delete/" + projectid, function (data) {});
+      $("#project-" + projectid).remove();
     }
 
-    $(".star-btn").click(function() {
-        if ($(this).hasClass("yellow")) {
-          $(this).parent().siblings(".star-count").text(parseInt($(this).parent().siblings(".star-count").text()) - 1);
-          $(this).removeClass("yellow")
-        } else {
-          $(this).parent().siblings(".star-count").text(parseInt($(this).parent().siblings(".star-count").text()) + 1);
-          $(this).addClass("yellow")
-        }
+    $(".star-btn").click(function () {
+      if ($(this).hasClass("yellow")) {
+        $(this).parent().siblings(".star-count").text(parseInt($(this).parent().siblings(".star-count").text()) - 1);
+        $(this).removeClass("yellow")
+      } else {
+        $(this).parent().siblings(".star-count").text(parseInt($(this).parent().siblings(".star-count").text()) + 1);
+        $(this).addClass("yellow")
+      }
     });
   </script>
 

@@ -45,7 +45,8 @@
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
           <!-- Topbar Search -->
-          <h1 class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100"><i class="fas fa-code"></i> Made In UCI</h1>
+          <h1 class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100"><i class="fas fa-code"></i>
+            Made In UCI</h1>
           <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search"
@@ -71,10 +72,10 @@
 
             {% if current_user %}
             <li class="nav-item dropdown no-arrow p-0">
-                <a class="nav-link p-0" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-lg fa-fw mr-2 text-gray-400"></i>
-                </a>
-              </li>
+              <a class="nav-link p-0" href="#" data-toggle="modal" data-target="#logoutModal">
+                <i class="fas fa-sign-out-alt fa-lg fa-fw mr-2 text-gray-400"></i>
+              </a>
+            </li>
             <li class="nav-item dropdown no-arrow"></li>
             <a class="nav-link" href="account/profile" role="button">
               <span class="mr-2 d-none d-lg-inline text-gray-600 large">{{ current_user.name }}</span>
@@ -135,9 +136,14 @@
                     <div class="media">
                       <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;"
                         src="{{ project.picture }}" alt="">
+
                       <div class="media-body">
-                        <p>{{ project.description }}</p>
-                        <p style="float:left;">Created By: {{ project.name }}<p style="float:right;">{{
+                        <p>Description: {{ project.description }}</p>
+                        <p class="mb-0 font-italic">{{ project.name }}</p>
+                        <p class="mb-0 font-italic" style="float:left;">Project URL: <a href="{{ project.url }}">{{
+                            project.url
+                            }}</a>
+                          <p class="mb-0" style="float:right;">{{
                             project.start_date }}</p>
                         </p>
                       </div>
@@ -221,18 +227,19 @@
       }
 
       function toggleStar(starid) {
-        $.post("../project/star/" + starid, function (data) {
-        });
+        $.post("../project/star/" + starid, function (data) {});
       }
 
-      $(".star-btn").click(function() {
-          if ($(this).hasClass("yellow")) {
-            $(this).parent().siblings(".star-count").text(parseInt($(this).parent().siblings(".star-count").text()) - 1);
-            $(this).removeClass("yellow")
-          } else {
-            $(this).parent().siblings(".star-count").text(parseInt($(this).parent().siblings(".star-count").text()) + 1);
-            $(this).addClass("yellow")
-          }
+      $(".star-btn").click(function () {
+        if ($(this).hasClass("yellow")) {
+          $(this).parent().siblings(".star-count").text(parseInt($(this).parent().siblings(".star-count").text()) -
+            1);
+          $(this).removeClass("yellow")
+        } else {
+          $(this).parent().siblings(".star-count").text(parseInt($(this).parent().siblings(".star-count").text()) +
+            1);
+          $(this).addClass("yellow")
+        }
       });
     </script>
 </body>
