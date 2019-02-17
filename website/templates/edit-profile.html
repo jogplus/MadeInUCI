@@ -19,9 +19,9 @@
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-    <!-- Custom styles for this template-->
+  <!-- Custom styles for this template-->
   {% for src in assets.base.styles %}
-    <link rel="stylesheet" href="{{ src }}">
+  <link rel="stylesheet" href="{{ src }}">
   {% endfor %}
 
 </head>
@@ -49,51 +49,93 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <input type="text" class="form-control form-control-user" id="fmajor" placeholder="Computer Science" value="{{ current_user.major }}">
+                    <label for="fmajor"> Major:</label>
+                    <input type="text" class="form-control form-control-user" id="fmajor" placeholder="Computer Science"
+                      value="{{ current_user.major }}">
                   </div>
                   <div class="form-group col-md-6">
+                    <label for="fyear"> Graduation Year:</label>
                     <input type="text" class="form-control form-control-user" id="fyear" placeholder="2021" value="{{ current_user.year }}">
                   </div>
                 </div>
                 <div class="form-row">
+                  <label for="fdescription"> Description/Bio:</label>
                   <textarea id="fdescription" class="form-control" placeholder="Description: Skills, Interests, etc.">{{ current_user.description }}</textarea>
                 </div>
-                <a href="#" id="save-btn" class="btn btn-facebook float-right shadow mt-2">
-                  Save Profile
-                </a>
-            </div>
-            <hr>
-            <!-- Content Row -->
-            <div class="row">
-              <!-- Illustrations -->
-              <div class="card shadow col mb-4 p-0">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">{ Project Name }</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false">
-                      <a>444</a>
-                    </a>
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-star fa-sm fa-fw text-gray-400"></i>
+                <div class="form-row">
+                  <div class="col-md-12">
+                    <a href="#" id="save-btn" class="btn btn-facebook float-right shadow mt-2">
+                      Save Profile
                     </a>
                   </div>
                 </div>
-                <div class="card-body">
-                  <div class="media">
-                    <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;"
-                      src="img/undraw_posting_photo.svg" alt="">
-                    <div class="media-body">
-                      <p>{ Project Description }</p>
-                      <p style="float:left;">{ Username }<p style="float:right;">{ Date }</p>
-                      </p>
+              </div>
+              <hr>
+              <!-- Content Row -->
+              <label for="event-created"> Events Created</label>
+              <div id="events-created" class="row">
+                <!-- User Events -->
+                <div class="card shadow col mb-4 p-0">
+                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">{ Project Name }</h6>
+                    <div class="dropdown no-arrow">
+                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <a>444</a>
+                      </a>
+                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-star fa-sm fa-fw text-gray-400"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="media">
+                      <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;"
+                        src="img/undraw_posting_photo.svg" alt="">
+                      <div class="media-body">
+                        <p>{ Project Description }</p>
+                        <p style="float:left;">{ Username }<p style="float:right;">{ Date }</p>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+              <!-- Content Row -->
+              <label for="event-to-attend"> Stared Events</label>
+              <div id="events-to-attend" class="row">
+                <!-- User Events -->
+                <div class="card shadow col mb-4 p-0">
+                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">{ Project Name }</h6>
+                    <div class="dropdown no-arrow">
+                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <a>444</a>
+                      </a>
+                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-star fa-sm fa-fw text-gray-400"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="media">
+                      <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;"
+                        src="img/undraw_posting_photo.svg" alt="">
+                      <div class="media-body">
+                        <p>{ Project Description }</p>
+                        <p style="float:left;">{ Username }<p style="float:right;">{ Date }</p>
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
             <form id="save-profile" method="post" hidden>{{ render_form(form) }}</form>
             <hr>
           </div>
@@ -105,21 +147,21 @@
   </div>
 
   {% for src in assets.base.vendor %}
-    <script src="{{ src }}"></script>
+  <script src="{{ src }}"></script>
   {% endfor %}
   {% for src in assets.base.scripts %}
-    <script src="{{ src }}"></script>
+  <script src="{{ src }}"></script>
   {% endfor %}
   <script>
-      $("#save-btn").click(function() {
+    $("#save-btn").click(function () {
 
-        // Useful data for your client-side scripts:
-        $('#major').val($("#fmajor").val());
-        $('#year').val($("#fyear").val());
-        $('#description').val($("#fdescription").val());
-        $('#save-profile').submit();
-      });
-    </script>
+      // Useful data for your client-side scripts:
+      $('#major').val($("#fmajor").val());
+      $('#year').val($("#fyear").val());
+      $('#description').val($("#fdescription").val());
+      $('#save-profile').submit();
+    });
+  </script>
 
 </body>
 
