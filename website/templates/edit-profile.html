@@ -118,7 +118,7 @@
                       <div class="card-body">
                         <div class="media">
                           <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;"
-                            src="img/undraw_posting_photo.svg" alt="">
+                            src="{{ project.picture }}" alt="">
                           <div class="media-body">
                             <p>{{ project.description }}</p>
                             <p style="float:left;">Created By: {{ project.name }}<p style="float:right;">{{
@@ -165,7 +165,7 @@
                       <div class="card-body">
                         <div class="media">
                           <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;"
-                            src="img/undraw_posting_photo.svg" alt="">
+                            src="{{ star[1].picture }}" alt="">
                           <div class="media-body">
                             <p>{{ star[1].description }}</p>
                             <p style="float:left;">Created By: {{ star[1].name }}<p style="float:right;">{{
