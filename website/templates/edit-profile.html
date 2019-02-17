@@ -60,7 +60,7 @@
                   <div class="form-group col-md-6">
                     <label for="fyear"> Graduation Year:</label>
                     {% if current_user.year == None %}
-                    <input type="text" class="form-control form-control-user" id="fyear" placeholder="">
+                    <input type="text" class="form-control form-control-user" id="fyear" placeholder="Ex: 2021">
                     {% else %}
                     <input type="text" class="form-control form-control-user" id="fyear" placeholder="Ex: 2021" value="{{ current_user.year }}">
                     {% endif %}
