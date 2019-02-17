@@ -78,5 +78,5 @@ def profile():
     user = User.query.filter_by(email=current_user.email).first()
     projects = Project.query.filter_by(userid=user.id).all()
     stars = db.session.query(Star, Project).filter(Star.userid == user.id).filter(Project.id == Star.projectid).all()
-    starsIDs = [s.projectid for s in stars]
+    starsIDs = [s[0].projectid for s in stars]
     return render_template('edit-profile.html', form=form, projects=projects, stars=stars, starsIDs=starsIDs)
