@@ -2,7 +2,7 @@
 In support of entrepreneurial anteaters.
 
 <html>
-    <img src="https://raw.githubusercontent.com/jogplus/MadeInUCI/master/pics/homepage.png" alt="Screenshot of Made In UCI homepage" height="300">
+    <img src="https://raw.githubusercontent.com/jogplus/MadeInUCI/master/pics/homepage.png" alt="Screenshot of Made In UCI homepage" height="400">
 </html>
 
 Made In UCI allows for students to show off their projects. Projects can vary from a business idea to a volunteering event.
