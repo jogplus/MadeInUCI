@@ -18,6 +18,9 @@ class ProjectForm(BaseForm):
         user = User.query.filter_by(email=email).first()
         project = Project(title=self.title.data)
         project.userid = user.id
+        project.name = user.name
+        project.star_count = 0
+        project.url = self.url.data
         project.description = self.description.data
         project.start_date = self.start_date.data
         project.duration = self.duration.data

@@ -93,8 +93,7 @@
         $('#url').val($("#furl").val());
         $('#description').val($("#fdescription").val());
         var date = new Date($("#fdate").val())
-        console.log(date.toString())
-        $('#start_date').val(date.toString());
+        $('#start_date').val(date.toLocaleDateString("en-US"));
         $('#duration').val($("#fduration").val());
         $('#save-project').submit();
       });

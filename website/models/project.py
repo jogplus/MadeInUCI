@@ -18,3 +18,6 @@ class Project(Base):
     description = Column(String(2556))
     start_date = Column(String(200))
     duration = Column(String(80))
+    star_count = Column(Integer)
+    name = Column(String(200))
+    url = Column(String(200))

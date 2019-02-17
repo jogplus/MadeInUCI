@@ -1,1 +1,11 @@
 .env
+env
+env/
+/env
+*.sqlite
+*.pyc
+_pycache_/*.pyc
+website/_pycache_/*.pyc
+website/forms/_pycache_/*.pyc
+website/models/_pycache_/*.pyc
+website/routes/_pycache_/*.pyc
