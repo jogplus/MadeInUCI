@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Profile</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  {% for src in assets.base.styles %}
+    <link rel="stylesheet" href="{{ src }}">
+  {% endfor %}
+
+</head>
+
+<body class="bg-gradient-primary">
+
+  <div class="container">
+
+    <div class="card o-hidden border-0 shadow-xl my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-xl-0 d-none d-lg-block"></div>
+          <div class="col-xl-12">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Edit Project</h1>
+              </div>
+              <form class="user">
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-user" id="projectTitle" placeholder="Project Title">
+                </div>
+                <div class="text-center form-group">
+                    <img src="https://i.imgur.com/5Jug5j3.png" class="img-thumbnail" id="projectPic" alt="Project Picture" style="object-fit: cover; height:20em; width:20em">
+                    <div class="input-group mb-3">
+                      <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="projectPicUploader" accept="image/x-png,image/gif,image/jpeg" onchange="readImage(this);">
+                          <label class="custom-file-label" for="inputGroupFile01">Upload image</label>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-user" id="projectURL" placeholder="Project URL">
+                </div>
+                <div class="form-row">
+                  <textarea class="form-control" placeholder="Description: Tell us about your project." id="description"></textarea>
+
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="index.html" class="btn btn-facebook btn-user col-md-9" style="float:left;">
+                  Update Project
+                </a>
+                <a href="index.html" class="btn btn-warning btn-user col-md-3">
+                  Cancel
+                </a>
+            </form>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <script>
+    function readImage(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+              $('#projectPic')
+                  .attr('src', e.target.result);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+      }
+    }
+  </script>
+
+  {% for src in assets.base.vendor %}
+    <script src="{{ src }}"></script>
+  {% endfor %}
+  {% for src in assets.base.scripts %}
+    <script src="{{ src }}"></script>
+  {% endfor %}
+
+</body>
+
+</html>
