@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy import Column
 from sqlalchemy import UniqueConstraint
 from sqlalchemy import (
-    Integer, String, DateTime, Array
+    Integer, String
 )
 from .base import db, Base
 
