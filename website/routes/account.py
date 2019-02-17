@@ -4,6 +4,8 @@ from ..auth import current_user, logout as _logout
 from ..auth import oauth, require_login
 from ..forms.user import AuthenticateForm, UserCreationForm, AuthenticateGoogle
 from ..forms.profile import ProfileForm
+from ..models.user import User
+from ..models.project import Project
 from google.oauth2 import id_token
 from google.auth.transport import requests
 
@@ -72,4 +74,6 @@ def profile():
     form = ProfileForm()
     if form.validate_on_submit():
         form.save(current_user.email)
-    return render_template('edit-profile.html', form=form)
+    user = User.query.filter_by(email=current_user.email).first()
+    projects = Project.query.filter_by(userID=user.id)
+    return render_template('edit-profile.html', form=form, projects=projects)

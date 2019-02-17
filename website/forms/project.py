@@ -1,20 +1,28 @@
-from flask import Blueprint
-from flask import url_for, redirect, render_template, request
-from ..auth import current_user, logout as _logout
-from ..auth import oauth, require_login
-from ..forms.user import AuthenticateForm, UserCreationForm, AuthenticateGoogle
-from ..forms.profile import ProfileForm
-from google.oauth2 import id_token
-from google.auth.transport import requests
+from wtforms.fields import StringField, PasswordField, DateTimeField
+from wtforms.fields.html5 import EmailField
+from wtforms.validators import DataRequired
+from wtforms.validators import StopValidation
+from .base import BaseForm
+from ..models import db, User, Project
+from ..auth import login
 
-bp = Blueprint('project', __name__)
 
-@bp.route('/edit/<id>', methods=['GET', 'POST'])
-@require_login
-def edit(id):
-    return render_template('edit-project.html')
+class ProjectForm(BaseForm):
+    title = StringField()
+    picture = StringField()
+    url = StringField()
+    description = StringField()
+    start_date = DateTimeField()
+    duration = StringField()
 
-@bp.route('/create', methods=['GET', 'POST'])
-@require_login
-def create():
-    return render_template('edit-project.html')
+    def save(self, email):
+        user = User.query.filter_by(email=email).first()
+        project = Project(title=self.title.data)
+        project.userid = user.id
+        project.picture = self.picture.data
+        project.description = self.description.data
+        project.start_date = self.start_date.data
+        project.duration = self.duration.data
+        with db.auto_commit():
+            db.session.add(project)
+        return project
