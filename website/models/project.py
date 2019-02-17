@@ -20,3 +20,4 @@ class Project(Base):
     duration = Column(String(80))
     star_count = Column(Integer)
     name = Column(String(200))
+    url = Column(String(200))
