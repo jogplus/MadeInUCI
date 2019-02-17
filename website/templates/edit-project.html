@@ -37,32 +37,35 @@
               </div>
               <form class="user">
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="projectTitle" placeholder="Project Title">
-                </div>
-                <div class="text-center form-group">
-                    <img src="https://i.imgur.com/5Jug5j3.png" class="img-thumbnail" id="projectPic" alt="Project Picture" style="object-fit: cover; height:20em; width:20em">
-                    <div class="input-group mb-3">
-                      <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="projectPicUploader" accept="image/x-png,image/gif,image/jpeg" onchange="readImage(this);">
-                          <label class="custom-file-label" for="inputGroupFile01">Upload image</label>
-                      </div>
-                    </div>
+                  <input type="text" class="form-control" id="projectTitle" placeholder="Project Title">
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="projectURL" placeholder="Project URL">
+                  <input type="text" class="form-control" id="projectURL" placeholder="Project URL">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input type="date" class="form-control" id="date">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="text" class="form-control" id="duration" placeholder="Duration">
+                    </div>
                 </div>
                 <div class="form-row">
                   <textarea class="form-control" placeholder="Description: Tell us about your project." id="description"></textarea>
-
                 </div>
-            </div>
-            <div class="text-center">
-                <a href="index.html" class="btn btn-facebook btn-user col-md-9" style="float:left;">
-                  Update Project
-                </a>
-                <a href="index.html" class="btn btn-warning btn-user col-md-3">
-                  Cancel
-                </a>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <a href="" class="btn btn-facebook btn-user" style="float:left;">
+                          Update Project
+                        </a>
+                    </div>
+                    <div class="form-group">
+                        <a href="" class="btn btn-warning btn-user">
+                          Cancel
+                        </a>
+                    </div>
+                </div>
             </form>
             <hr>
           </div>
