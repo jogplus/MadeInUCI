@@ -87,36 +87,39 @@
               <label for="event-created"> Events Created</label>
               <div id="events-created" class="row">
                 <!-- User Events -->
-                {% for project in projects %}
-                <div class="row">
-                  <div class="card shadow col mb-4 p-0">
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                      <h6 class="m-0 font-weight-bold text-primary">{{ project.title }}</h6>
-                      <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                          <a>{ star count }</a>
-                        </a>
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-star fa-sm fa-fw text-gray-400"></i>
-                        </a>
+                <div class="container">
+                  {% for project in projects %}
+                  <div class="row">
+                    <div class="card shadow col mb-4 p-0">
+                      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">{{ project.title }}</h6>
+                        <div class="dropdown no-arrow">
+                          <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <a>{{ project.star_count }}</a>
+                          </a>
+                          <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-star fa-sm fa-fw text-gray-400"></i>
+                          </a>
+                        </div>
                       </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="media">
-                        <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;"
-                          src="img/undraw_posting_photo.svg" alt="">
-                        <div class="media-body">
-                          <p>{{ project.description }}</p>
-                          <p style="float:left;">{{ project.userid }}<p style="float:right;">{{ project.start_date }}</p>
-                          </p>
+                      <div class="card-body">
+                        <div class="media">
+                          <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;"
+                            src="img/undraw_posting_photo.svg" alt="">
+                          <div class="media-body">
+                            <p>{{ project.description }}</p>
+                            <p style="float:left;">Created By: {{ project.name }}<p style="float:right;">{{
+                                project.start_date }}</p>
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  {% endfor %}
                 </div>
-                {% endfor %}
               </div>
 
               <hr>
@@ -124,29 +127,31 @@
               <label for="event-to-attend"> Stared Events</label>
               <div id="events-to-attend" class="row">
                 <!-- User Events -->
-                <div class="row">
-                  <div class="card shadow col mb-4 p-0">
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                      <h6 class="m-0 font-weight-bold text-primary">{ Project Name }</h6>
-                      <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                          <a>444</a>
-                        </a>
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-star fa-sm fa-fw text-gray-400"></i>
-                        </a>
+                <div class="container">
+                  <div class="row">
+                    <div class="card shadow col mb-4 p-0">
+                      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">{ Project Name }</h6>
+                        <div class="dropdown no-arrow">
+                          <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <a>444</a>
+                          </a>
+                          <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-star fa-sm fa-fw text-gray-400"></i>
+                          </a>
+                        </div>
                       </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="media">
-                        <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;"
-                          src="img/undraw_posting_photo.svg" alt="">
-                        <div class="media-body">
-                          <p>{ Project Description }</p>
-                          <p style="float:left;">{ Username }<p style="float:right;">{ Date }</p>
-                          </p>
+                      <div class="card-body">
+                        <div class="media">
+                          <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;"
+                            src="img/undraw_posting_photo.svg" alt="">
+                          <div class="media-body">
+                            <p>{ Project Description }</p>
+                            <p style="float:left;">{ Username }<p style="float:right;">{ Date }</p>
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
