@@ -50,17 +50,29 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="fmajor"> Major:</label>
-                    <input type="text" class="form-control form-control-user" id="fmajor" placeholder="Computer Science"
+                    {% if current_user.major == None %}
+                    <input type="text" class="form-control form-control-user" id="fmajor" placeholder="Ex: Computer Science">
+                    {% else %}
+                    <input type="text" class="form-control form-control-user" id="fmajor" placeholder="Ex: Computer Science"
                       value="{{ current_user.major }}">
+                    {% endif %}
                   </div>
                   <div class="form-group col-md-6">
                     <label for="fyear"> Graduation Year:</label>
-                    <input type="text" class="form-control form-control-user" id="fyear" placeholder="2021" value="{{ current_user.year }}">
+                    {% if current_user.year == None %}
+                    <input type="text" class="form-control form-control-user" id="fyear" placeholder="">
+                    {% else %}
+                    <input type="text" class="form-control form-control-user" id="fyear" placeholder="Ex: 2021" value="{{ current_user.year }}">
+                    {% endif %}
                   </div>
                 </div>
                 <div class="form-row">
                   <label for="fdescription"> Description/Bio:</label>
+                  {% if current_user.year == None %}
+                  <textarea id="fdescription" class="form-control" placeholder="Description: Skills, Interests, etc."></textarea>
+                  {% else %}
                   <textarea id="fdescription" class="form-control" placeholder="Description: Skills, Interests, etc.">{{ current_user.description }}</textarea>
+                  {% endif %}
                 </div>
                 <div class="form-row">
                   <div class="col-md-12">
