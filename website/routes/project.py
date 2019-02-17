@@ -58,3 +58,17 @@ def star(id):
     # db.session.commit
 
     return redirect(url_for('front.home'))
+
+@bp.route('/delete/<id>', methods=['POST'])
+@require_login
+def delete(id):
+    id = int(id)
+    user = User.query.filter_by(email=current_user.email).first()
+    project = Project.query.filter_by(id=id, userid=user.id).first()
+    stars = Star.query.filter_by(projectid=id).all()
+    with db.auto_commit():
+        db.session.delete(project)
+    for star in stars:
+        with db.auto_commit():
+            db.session.delete(star)
+    return redirect(url_for('front.home'))
