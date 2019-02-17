@@ -9,6 +9,7 @@ from ..models.project import Project
 from ..models.star import Star
 from google.oauth2 import id_token
 from google.auth.transport import requests
+from ..models import db
 
 bp = Blueprint('account', __name__)
 
@@ -76,6 +77,6 @@ def profile():
         form.save(current_user.email)
     user = User.query.filter_by(email=current_user.email).first()
     projects = Project.query.filter_by(userid=user.id).all()
-    stars = Star.query.filter_by(userid=user.id).all()
-    stars = [s.projectid for s in stars]
-    return render_template('edit-profile.html', form=form, projects=projects, stars=stars)
+    stars = db.session.query(Star, Project).filter(Star.userid == user.id).filter(Project.id == Star.projectid).all()
+    starsIDs = [s.projectid for s in stars]
+    return render_template('edit-profile.html', form=form, projects=projects, stars=stars, starsIDs=starsIDs)
