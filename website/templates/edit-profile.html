@@ -18,6 +18,10 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
 
+  <style>
+    .yellow {color: rgb(255, 217, 0) !important;}
+  </style>
+
   <!-- Custom styles for this template-->
   <!-- Custom styles for this template-->
   {% for src in assets.base.styles %}
@@ -96,17 +100,17 @@
                         <div class="dropdown no-arrow">
                           <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            <a>{{ project.star_count }}</a>
+                            <a id="starcount-{{ project.id }}">{{ project.star_count }}</a>
                           </a>
                           {% if project.id in stars %}
-                            <a class="dropdown-toggle" id="star-{{ project.id }}" onclick="toggleStar({{ project.id }})" role="button" data-toggle="dropdown"
+                            <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button"
                               aria-haspopup="true" aria-expanded="false">
-                              <i class="fas fa-star fa-md fa-fw text-400" style="color: rgb(255, 217, 0);"></i>
+                              <i class="fas fa-star fa-md fa-fw text-400 yellow" id="star-{{ project.id }}"></i>
                             </a>
                           {% else %}
-                            <a class="dropdown-toggle" id="star-{{ project.id }}" onclick="toggleStar({{ project.id }})" role="button" data-toggle="dropdown"
+                            <a class="dropdown-toggle" onclick="toggleStar({{ project.id }})" role="button"
                               aria-haspopup="true" aria-expanded="false">
-                              <i class="fas fa-star fa-md fa-fw text-gray-400"></i>
+                              <i class="fas fa-star fa-md fa-fw text-400" id="star-{{ project.id }}" ></i>
                             </a>
                           {% endif %}
                         </div>
@@ -194,9 +198,20 @@
 
     function toggleStar(starid) {
       $.post("../project/star/"+starid, function( data ) {
-        
+
       });
+
+      if ($("#star-"+starid).hasClass("yellow")) {
+          $("#starcount-"+starid).text(parseInt($("#starcount-"+starid).text()) - 1);
+          $("#star-"+starid).removeClass("yellow")
+      } else {
+          console.log("doesn't have yellow")
+          $("#starcount-"+starid).text(parseInt($("#starcount-"+starid).text()) + 1);
+          $("#star-"+starid).addClass("yellow")
+      }
     }
+
+
   </script>
 
 </body>
