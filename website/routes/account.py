@@ -73,8 +73,3 @@ def profile():
     if form.validate_on_submit():
         form.save(current_user.email)
     return render_template('edit-profile.html', form=form)
-
-@bp.route('/project', methods=['GET', 'POST'])
-@require_login
-def project():
-    return render_template('edit-project.html')
