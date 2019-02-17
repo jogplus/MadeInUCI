@@ -27,3 +27,11 @@ def create():
         form.save(current_user.email)
         return redirect(url_for('account.profile'), )
     return render_template('create-project.html', form=form)
+
+@bp.route('/star/<id>', methods=['POST'])
+@require_login
+def star():
+    project =Project.query.filter_by(id=id).first()
+    if project:
+        return "temp"
+    return "temp"
