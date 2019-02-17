@@ -15,7 +15,6 @@ class Project(Base):
     id = Column(Integer, primary_key=True)
     userid = Column(Integer)
     title = Column(String(80))
-    picture = Column(LargeBinary())
     description = Column(String(2556))
-    start_date = Column(DateTime)
+    start_date = Column(String(200))
     duration = Column(String(80))

@@ -9,17 +9,15 @@ from ..auth import login
 
 class ProjectForm(BaseForm):
     title = StringField()
-    picture = StringField()
     url = StringField()
     description = StringField()
-    start_date = DateTimeField()
+    start_date = StringField()
     duration = StringField()
 
     def save(self, email):
         user = User.query.filter_by(email=email).first()
         project = Project(title=self.title.data)
         project.userid = user.id
-        project.picture = self.picture.data
         project.description = self.description.data
         project.start_date = self.start_date.data
         project.duration = self.duration.data

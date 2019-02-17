@@ -75,5 +75,5 @@ def profile():
     if form.validate_on_submit():
         form.save(current_user.email)
     user = User.query.filter_by(email=current_user.email).first()
-    projects = Project.query.filter_by(userID=user.id)
+    projects = Project.query.filter_by(userid=user.id).all()
     return render_template('edit-profile.html', form=form, projects=projects)

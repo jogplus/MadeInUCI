@@ -25,4 +25,5 @@ def create():
     form = ProjectForm()
     if form.validate_on_submit():
         form.save(current_user.email)
-    return render_template('edit-project.html', form=form)
+        return redirect(url_for('account.profile'), )
+    return render_template('create-project.html', form=form)
