@@ -27,6 +27,10 @@ The Made In UCI website is the first phase of a larger “Made In UCI” initiat
 Additional future features: search by project/user, comment on projects, iFrames for previewing projects, show top projects of month/year/all time
 
 ## Contributors
-[Tristan Jogminas](https://www.linkedin.com/in/tristan-jogminas/)  
-[Zachary Pinto](https://www.linkedin.com/in/zacharypinto/)  
-[Chase Carnaroli](https://www.linkedin.com/in/chasecarnaroli/)  
+<html>
+    <img src="https://raw.githubusercontent.com/jogplus/MadeInUCI/master/pics/teamphoto.jpg" alt="Team Photo" height=350">
+</html>
+
+|[Zachary Pinto](https://www.linkedin.com/in/zacharypinto/)|[Chase Carnaroli](https://www.linkedin.com/in/chasecarnaroli/)   |[Tristan Jogminas](https://www.linkedin.com/in/tristan-jogminas/)|
+|-|-|-|
+
