@@ -121,7 +121,7 @@
                         <div class="media">
                           <img class="img-fluid rounded shadow mt-2 mb-2 mr-4" style="width: 5rem; height: 5rem; object-fit: cover;"
                             src="{{ project.picture }}" alt="">
-                          <div class="media-body">
+                          <div class="media-body" style="overflow-x: scroll;">
                             <p>Description: {{ project.description }}</p>
                             <p class="mb-0 font-italic">{{ project.name }}</p>
                             <p class="mb-0 font-italic" style="float:left;">Project URL: <a target="_blank" href="{{ project.url }}">{{
@@ -175,7 +175,7 @@
                           <div class="media-body" style="overflow-x: scroll;">
                             <p>Description: {{ star[1].description }}</p>
                             <p class="mb-0 font-italic">{{ star[1].name }}</p>
-                            <p class="mb-0 font-italic" style="float:left;">Project URL: <a target="_blank" href="http://{{ star[1].url }}">{{
+                            <p class="mb-0 font-italic" style="float:left;">Project URL: <a target="_blank" href="{{ star[1].url }}">{{
                                 star[1].url
                                 }}</a>
                               <p class="
